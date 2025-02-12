@@ -18,9 +18,15 @@ if __name__ == '__main__':
                 while True:
                     try:
                         data = sock.recv(1024)
+                        message = data.decode().strip()
                         if not data:
-                            print('Error')
+                            print('Disconnect....')
                             break
+                        elif message == 'stop':
+                            print('Сервер отключен по команде от', addr)
+                            sock.sendall(b'Server is off!!!')
+                            raise SystemExit(0)  # Завершает работу сервера нашел в Google!!
+
                         else:
                             print(f'Received: {data}, from: {addr}')
                             data = data.upper()
@@ -36,3 +42,4 @@ if __name__ == '__main__':
                         print(f'Клиент внезапно отключился не могу отправить данные')
                         break
                 print("Отключению по", addr)
+            # break
