@@ -1,7 +1,7 @@
 import socket
 import threading
 
-HOST = '127.0.0.echo_server'  # Использовать все адреса: виден и снаружи, и изнутри
+HOST = '127.0.0.1'  # Использовать все адреса: виден и снаружи, и изнутри
 PORT = 50432  # Port to listen on (non-privileged ports are > 1023)
 
 
